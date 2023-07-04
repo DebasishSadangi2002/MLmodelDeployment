@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BodyFat Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333333;
+            text-align: center;
+        }
+        
+        form {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        form-label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333333;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #cccccc;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        
+        .form-submit {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .form-submit:hover {
+            background-color: #45a049;
+        }
+        
+        h2 {
+            color: #333333;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        p {
+            text-align: center;
+            font-size: 18px;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        h2 {
+            color: #333333;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        p {
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>BodyFat Prediction</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Predict</button>
+    </form>
+    {% if predicted_bodyfat %}
+        <h2>Predicted BodyFat Value:</h2>
+        <p>{{ predicted_bodyfat }}</p>
+    {% endif %}
+</body>
+</html>
